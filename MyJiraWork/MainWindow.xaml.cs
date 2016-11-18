@@ -60,10 +60,17 @@ namespace MyJiraWork
                                                               ((LoginViewModel)view.DataContext).UserName,
                                                               ((LoginViewModel)view.DataContext).Password,
                                                               version);
-            JiraUser ret = await JiraBackend.Instance.Client.Myself();
+            LoadSelfDataAync();
 
-            Console.WriteLine("======================");
+            Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!");
         }
+
+        private static async Task LoadSelfDataAync()
+        {
+            JiraUser ret = await JiraBackend.Instance.Client.Myself();
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
+        }
+
 
         private async void WindowsLoadedHandler(object sender, RoutedEventArgs e)
         {

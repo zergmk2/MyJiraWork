@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MyJiraWork.Core.JsonClass
 {
-    public class JiraUser
+    public class JiraUser : JsonResponseBase
     {
         public string self { get; set; }
         public string key { get; set; }

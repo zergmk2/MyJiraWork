@@ -38,12 +38,30 @@ namespace MyJiraWork.Core
         #region Public Methods
         public async Task<JiraUser> Myself()
         {
-            var request = new RestRequest("myself", Method.GET);
-            var a = client.BuildUri(request);
-            var b = client.UserAgent;
-            Task<IRestResponse<JiraUser>> response = client.Execute<JiraUser>(request);
-            IRestResponse<JiraUser> r = await response;
-            return r.Data as JiraUser;
+            try
+            {
+                var request = new RestRequest("myself", Method.GET);
+                var a = client.BuildUri(request);
+                var b = client.UserAgent;
+                Task<IRestResponse<JiraUser>> response = client.Execute<JiraUser>(request);
+                IRestResponse<JiraUser> r = await response;
+                await Task.Delay(10000);
+                if (r.IsSuccess)
+                {
+                    r.Data.Status = ResponseStatus.OK;
+                    return r.Data;
+                }
+            }
+            catch (Exception ex)
+            {
+                return new JiraUser
+                {
+                    Status = ResponseStatus.Failed,
+                    FailureReason = ex.ToString()
+                };
+            }
+
+            return null;
         }
         #endregion
 
