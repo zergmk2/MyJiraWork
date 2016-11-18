@@ -12,9 +12,9 @@ namespace MyJiraWork.Core
     public class JiraClient
     {
         #region Constructor
-        public JiraClient(string ServerUrl, string userName, string password)
+        public JiraClient(string ServerUrl, string userName, string password, int restVersion = 2)
         {
-            restServerURL = GetRestApiUrl(ServerUrl);
+            restServerURL = GetRestApiUrl(ServerUrl, restVersion);
             client = new RestClient(restServerURL);
             client.Authenticator = new HttpBasicAuthenticator(userName, password);
             client.UserAgent = "Safari/537.36";
@@ -27,25 +27,15 @@ namespace MyJiraWork.Core
         #endregion
 
         #region Private Methods
-        private string GetRestApiUrl(string baseUrl)
+        private string GetRestApiUrl(string baseUrl, int restVersion)
         {
             var baseUri = new Uri(baseUrl);
-            var jiraRestApiUri = new Uri(baseUri, "rest/api/2");
+            var jiraRestApiUri = new Uri(baseUri, "rest/api/" + restVersion.ToString());
             return jiraRestApiUri.ToString();
         }
         #endregion
 
         #region Public Methods
-        public async Task Test()
-        {
-            Debug.WriteLine("===========================================");
-            Debug.WriteLine("===========================================");
-            Debug.WriteLine("===========================================");
-            Debug.WriteLine("===========================================");
-            JiraUser re = await Myself();
-            Debug.WriteLine("===========================================");
-            Debug.WriteLine("===========================================");
-        }
         public async Task<JiraUser> Myself()
         {
             var request = new RestRequest("myself", Method.GET);
