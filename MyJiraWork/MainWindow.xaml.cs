@@ -60,23 +60,26 @@ namespace MyJiraWork
                                                               ((LoginViewModel)view.DataContext).UserName,
                                                               ((LoginViewModel)view.DataContext).Password,
                                                               version);
-            LoadSelfDataAync();
+            LoadSelfDataAyncAsync();
 
             Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!");
         }
 
-        private static async Task LoadSelfDataAync()
+        private static async Task LoadSelfDataAyncAsync()
         {
             //JiraUser ret = await /*JiraBackend.Instance.Client.*/Myself();
             //Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
             //AssignedUserStories stories = await JiraBackend.Instance.Client.GetAssignedUserStoriesAsync();
             //Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
             UserStory issue = await JiraBackend.Instance.Client.GetUserStoryAsync(@"issue/493291");
+            JiraUser ret = await JiraBackend.Instance.Client.MyselfAsync();
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
+            AssignedUserStories stories = await JiraBackend.Instance.Client.GetAssignedUserStoriesAsync();
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
         }
 
 
-        private async void WindowsLoadedHandler(object sender, RoutedEventArgs e)
+        private void WindowsLoadedHandler(object sender, RoutedEventArgs e)
         {
 
         }

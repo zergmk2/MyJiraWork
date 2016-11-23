@@ -94,7 +94,14 @@
     </ApplicationDefinition>
     <Compile Include="Backend\JiraBackend.cs" />
     <Compile Include="Contracts\SingletonBase.cs" />
+    <Compile Include="Controllers\UserStoryCard.xaml.cs">
+      <DependentUpon>UserStoryCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Validator\NotEmptyValidationRule.cs" />
+    <Page Include="Controllers\UserStoryCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Domain\LoginViewDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

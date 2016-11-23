@@ -15,9 +15,11 @@ namespace MyJiraWork.Core
         public JiraClient(string ServerUrl, string userName, string password, int restVersion = 2)
         {
             restServerURL = GetRestApiUrl(ServerUrl, restVersion);
-            client = new RestClient(restServerURL);
-            client.Authenticator = new HttpBasicAuthenticator(userName, password);
-            client.UserAgent = "Safari/537.36";
+            client = new RestClient(restServerURL)
+            {
+                Authenticator = new HttpBasicAuthenticator(userName, password),
+                UserAgent = "Safari/537.36"
+            };
         }
         #endregion
 
@@ -36,7 +38,7 @@ namespace MyJiraWork.Core
         #endregion
 
         #region Public Methods
-        public async Task<JiraUser> Myself()
+        public async Task<JiraUser> MyselfAsync()
         {
             try
             {
