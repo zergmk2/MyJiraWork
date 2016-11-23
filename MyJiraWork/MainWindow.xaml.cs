@@ -69,6 +69,8 @@ namespace MyJiraWork
         {
             JiraUser ret = await JiraBackend.Instance.Client.Myself();
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
+            AssignedUserStories stories = await JiraBackend.Instance.Client.GetAssignedUserStoriesAsync();
+            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
         }
 
 

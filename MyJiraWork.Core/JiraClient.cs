@@ -63,6 +63,34 @@ namespace MyJiraWork.Core
 
             return null;
         }
+
+        public async Task<AssignedUserStories> GetAssignedUserStoriesAsync()
+        {
+            try
+            {
+                var request = new RestRequest("search?jql=assignee=currentuser() AND resolution=unresolved", Method.GET);
+                var a = client.BuildUri(request);
+                var b = client.UserAgent;
+                Task<IRestResponse<AssignedUserStories>> response = client.Execute<AssignedUserStories>(request);
+                IRestResponse<AssignedUserStories> r = await response;
+                await Task.Delay(10000);
+                if (r.IsSuccess)
+                {
+                    r.Data.Status = ResponseStatus.OK;
+                    return r.Data;
+                }
+            }
+            catch (Exception ex)
+            {
+                return new AssignedUserStories
+                {
+                    Status = ResponseStatus.Failed,
+                    FailureReason = ex.ToString()
+                };
+            }
+
+            return null;
+        }
         #endregion
 
         #region Property

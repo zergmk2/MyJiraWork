@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="JiraClient.cs" />
+    <Compile Include="JsonClass\AssignedUserStories.cs" />
     <Compile Include="JsonClass\JiraUser.cs" />
     <Compile Include="JsonClass\JsonResponseBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
