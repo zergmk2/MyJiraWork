@@ -42,6 +42,7 @@
     <Compile Include="JsonClass\AssignedUserStories.cs" />
     <Compile Include="JsonClass\JiraUser.cs" />
     <Compile Include="JsonClass\JsonResponseBase.cs" />
+    <Compile Include="JsonClass\UserStory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

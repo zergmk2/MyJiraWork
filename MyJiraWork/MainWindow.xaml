@@ -11,6 +11,7 @@
     Height="600"
     Background="{DynamicResource MaterialDesignPaper}"
     BorderThickness="0"
+    Loaded="WindowsLoadedHandler"
     ResizeMode="NoResize"
     TextElement.FontSize="13"
     TextElement.FontWeight="Regular"
@@ -18,7 +19,7 @@
     TextOptions.TextFormattingMode="Ideal"
     TextOptions.TextRenderingMode="Auto"
     WindowStyle="None"
-    mc:Ignorable="d" Loaded="WindowsLoadedHandler">
+    mc:Ignorable="d">
     <materialDesign:DialogHost Identifier="RootDialog">
         <materialDesign:DrawerHost IsLeftDrawerOpen="{Binding ElementName=MenuToggleButton, Path=IsChecked}">
             <!--<materialDesign:DrawerHost IsLeftDrawerOpen="False">-->

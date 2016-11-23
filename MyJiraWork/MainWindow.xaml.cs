@@ -67,9 +67,11 @@ namespace MyJiraWork
 
         private static async Task LoadSelfDataAync()
         {
-            JiraUser ret = await JiraBackend.Instance.Client.Myself();
-            Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
-            AssignedUserStories stories = await JiraBackend.Instance.Client.GetAssignedUserStoriesAsync();
+            //JiraUser ret = await /*JiraBackend.Instance.Client.*/Myself();
+            //Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
+            //AssignedUserStories stories = await JiraBackend.Instance.Client.GetAssignedUserStoriesAsync();
+            //Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
+            UserStory issue = await JiraBackend.Instance.Client.GetUserStoryAsync(@"issue/493291");
             Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@");
         }
 
