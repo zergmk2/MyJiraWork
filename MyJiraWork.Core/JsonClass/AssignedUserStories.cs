@@ -13,7 +13,7 @@ namespace MyJiraWork.Core.JsonClass
         public int startAt { get; set; }
         public int maxResults { get; set; }
         public int total { get; set; }
-        public Issue[] issues { get; set; }
+        public UserStory[] issues { get; set; }
     }
 
     public class Issue

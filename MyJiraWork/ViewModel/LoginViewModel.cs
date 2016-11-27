@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace MyJiraWork.Domain
 {
-    internal class LoginViewModel : ViewModelBase
+    public class LoginViewModel : ViewModelBase
     {
         #region Private Members
         private string userName;
