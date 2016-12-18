@@ -21,7 +21,6 @@ namespace WorkTracker.Command
             {
                 foreach (var item in data.issues)
                 {
-                    Console.WriteLine("============================");
                     Console.WriteLine(item.ToString());
                 }
             }
