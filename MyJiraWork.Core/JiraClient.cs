@@ -18,7 +18,7 @@ namespace MyJiraWork.Core
             client = new RestClient(restServerURL)
             {
                 Authenticator = new HttpBasicAuthenticator(userName, password),
-                UserAgent = "Safari/537.36"
+                UserAgent = "Safari/537.36",
             };
         }
         #endregion

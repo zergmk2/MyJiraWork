@@ -1,0 +1,19 @@
+// [START declaration]
+syntax = "proto3";
+package tutorial;
+// [END declaration]
+
+// [START csharp_declaration]
+option csharp_namespace = "MyJiraWork.Core.Utils.UserSetting";
+// [END csharp_declaration]
+
+// [START messages]
+message UserSetting {
+  string JiraServerAddress = 1;
+  string JiraUserName = 2;
+  string JiraPassword = 3;
+  string ProxyServer = 4;
+  string ProxyUserName = 5;
+  string ProxyPassword = 6;
+}
+// [END messages]
