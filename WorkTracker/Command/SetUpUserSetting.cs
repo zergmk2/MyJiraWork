@@ -23,13 +23,16 @@ namespace WorkTracker.Command
                 userSetting.JiraUserName = Console.ReadLine().Trim();
                 Console.WriteLine(string.Format("Please input the password of Jira Server {0} : ", userSetting.JiraServerAddress));
                 userSetting.JiraPassword = Console.ReadLine().Trim();
-                using (var output = File.Create(Common.UserSettingFilePath))
+                using (var memoryStream = new MemoryStream())
                 {
-                    userSetting.WriteTo(output);
+                    userSetting.WriteTo(memoryStream);
+                    memoryStream.Flush();
+                    CryptographyUtils.EncryptStreamtoFile(memoryStream, Common.UserSettingFilePath, Common.GetMachineGuid());
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.ToString());
             }
             return userSetting;
         }

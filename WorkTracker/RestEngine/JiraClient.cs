@@ -51,10 +51,15 @@ namespace WorkTracker.RestEngine
         {
             try
             {
-                using (var input = File.OpenRead(Common.UserSettingFilePath))
+                if (File.Exists(Common.UserSettingFilePath))
                 {
-                    userSetting = UserSetting.Parser.ParseFrom(input);
-                    InitializeClient(userSetting.JiraServerAddress, userSetting.JiraUserName, userSetting.JiraPassword);
+                    using (var stream = new MemoryStream())
+                    {
+                        CryptographyUtils.DecryptFiletoStream(Common.UserSettingFilePath, stream, Common.GetMachineGuid());
+                        stream.Position = 0;
+                        userSetting = UserSetting.Parser.ParseFrom(stream);
+                        InitializeClient(userSetting.JiraServerAddress, userSetting.JiraUserName, userSetting.JiraPassword);
+                    }
                 }
             }
             catch (Exception ex)

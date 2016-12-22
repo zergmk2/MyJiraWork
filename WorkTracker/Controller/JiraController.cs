@@ -15,11 +15,14 @@ namespace WorkTracker.Controller
         {
             try
             {
-                using (var input = File.OpenRead(Common.UserSettingFilePath))
+                if (File.Exists(Common.UserSettingFilePath))
                 {
-                    UserSetting = UserSetting.Parser.ParseFrom(input);
-                    Client = JiraClient.Instance;
-                    Client.InitializeClient(UserSetting.JiraServerAddress, UserSetting.JiraUserName, UserSetting.JiraPassword);
+                    using (var input = File.OpenRead(Common.UserSettingFilePath))
+                    {
+                        UserSetting = UserSetting.Parser.ParseFrom(input);
+                        Client = JiraClient.Instance;
+                        Client.InitializeClient(UserSetting.JiraServerAddress, UserSetting.JiraUserName, UserSetting.JiraPassword);
+                    }
                 }
             }
             catch (Exception ex)
