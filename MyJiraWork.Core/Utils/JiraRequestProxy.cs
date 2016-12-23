@@ -3,37 +3,57 @@ using System.Net;
 
 namespace MyJiraWork.Core.Utils
 {
-    //public class JiraRequestProxy : IRequestProxy
-    //{
-    //    public JiraRequestProxy()
-    //    {
+    public class JiraRequestProxy : IWebProxy
+    {
+        public JiraRequestProxy(string userName, string password, string proxySrvUrl)
+        {
+            Credentials = new NetworkCredential(userName, password);
+            ProxySrvUri = new Uri(proxySrvUrl);
+        }
 
-    //    }
+        #region private member
+        private Uri proxySrvUri;
+        private NetworkCredential credentials;
+        #endregion
 
-    //    private NetworkCredential credentials;
-    //    public ICredentials Credentials
-    //    {
-    //        get
-    //        {
-    //            return credentials;
-    //        }
-    //        set
-    //        {
-    //            if (value is NetworkCredential)
-    //            {
-    //                credentials = value as NetworkCredential;
-    //            }
-    //        }
-    //    }
+        #region properties
+        public ICredentials Credentials
+        {
+            get
+            {
+                return credentials;
+            }
+            set
+            {
+                if (value is NetworkCredential)
+                {
+                    credentials = value as NetworkCredential;
+                }
+            }
+        }
 
-    //    public Uri GetProxy(Uri destination)
-    //    {
-    //        return new Uri("http://192.168.31.152:3128");
-    //    }
+        public Uri ProxySrvUri
+        {
+            get
+            {
+                return proxySrvUri;
+            }
 
-    //    public bool IsBypassed(Uri host)
-    //    {
-    //        return false;
-    //    }
-    //}
+            set
+            {
+                proxySrvUri = value;
+            }
+        }
+        #endregion
+
+        public Uri GetProxy(Uri destination)
+        {
+            return ProxySrvUri;
+        }
+
+        public bool IsBypassed(Uri host)
+        {
+            return false;
+        }
+    }
 }

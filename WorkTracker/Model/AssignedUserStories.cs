@@ -17,7 +17,8 @@ namespace WorkTracker.Model
         public int startAt { get; set; }
         public int maxResults { get; set; }
         public int total { get; set; }
-        public UserStory[] issues { get; set; }
+        public Issue[] issues { get; set; }
+
     }
 
     public class Issue
@@ -27,6 +28,13 @@ namespace WorkTracker.Model
         public string self { get; set; }
         public string key { get; set; }
         public Fields fields { get; set; }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine(string.Format("{0,10} | {1, 15} | {2, 20}", id, key, fields.summary));
+            return sb.ToString();
+        }
     }
 
     public class Fields

@@ -17,12 +17,19 @@ namespace WorkTracker.Command
             UserSetting userSetting = new UserSetting();
             try
             {
-                Console.WriteLine("Please input the Jira Server Url : ");
+                Console.WriteLine(@"Please input the Jira Server Url, for example : https://jira.server.com/");
                 userSetting.JiraServerAddress = Console.ReadLine().Trim();
                 Console.WriteLine(string.Format("Please input the user name of Jira Server {0} : ", userSetting.JiraServerAddress));
                 userSetting.JiraUserName = Console.ReadLine().Trim();
                 Console.WriteLine(string.Format("Please input the password of Jira Server {0} : ", userSetting.JiraServerAddress));
                 userSetting.JiraPassword = Console.ReadLine().Trim();
+                Console.WriteLine(string.Format(@"Please input the Proxy server URL, for example : http://proxy.server.com:80 "));
+                userSetting.ProxyServer = Console.ReadLine().Trim();
+                Console.WriteLine(string.Format("Please input the user name of Proxy Server {0} : ", userSetting.ProxyServer));
+                userSetting.ProxyUserName = Console.ReadLine().Trim();
+                Console.WriteLine(string.Format("Please input the password of Proxy Server {0} : ", userSetting.ProxyServer));
+                userSetting.ProxyPassword = Console.ReadLine().Trim();
+
                 using (var memoryStream = new MemoryStream())
                 {
                     userSetting.WriteTo(memoryStream);

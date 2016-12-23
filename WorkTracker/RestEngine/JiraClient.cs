@@ -11,6 +11,8 @@ using RestSharp.Authenticators;
 using WorkTracker.Contract;
 using WorkTracker.Model;
 using WorkTracker.Utils;
+using System.Net;
+using MyJiraWork.Core.Utils;
 
 namespace WorkTracker.RestEngine
 {
@@ -59,6 +61,8 @@ namespace WorkTracker.RestEngine
                         stream.Position = 0;
                         userSetting = UserSetting.Parser.ParseFrom(stream);
                         InitializeClient(userSetting.JiraServerAddress, userSetting.JiraUserName, userSetting.JiraPassword);
+                        JiraRequestProxy myProxy = new JiraRequestProxy(userSetting.ProxyUserName, userSetting.ProxyPassword, userSetting.ProxyServer);
+                        client.Proxy = myProxy;
                     }
                 }
             }
