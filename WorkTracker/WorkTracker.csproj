@@ -69,6 +69,7 @@
     <Compile Include="..\MyJiraWork.Core\Utils\UserSetting.cs">
       <Link>Contract\UserSetting.cs</Link>
     </Compile>
+    <Compile Include="Backend\GitClient.cs" />
     <Compile Include="Command\ListUserStory.cs" />
     <Compile Include="Command\SetUpUserSetting.cs" />
     <Compile Include="Contract\SingletonBase.cs" />
@@ -79,7 +80,7 @@
     <Compile Include="Model\UserStory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RestEngine\JiraClient.cs" />
+    <Compile Include="Backend\JiraClient.cs" />
     <Compile Include="Utils\Common.cs" />
     <Compile Include="Utils\CryptographyUtils.cs" />
   </ItemGroup>

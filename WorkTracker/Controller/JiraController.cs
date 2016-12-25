@@ -8,7 +8,7 @@ namespace WorkTracker.Controller
 {
     public class JiraController
     {
-       
+
         private JiraClient client;
         private UserSetting userSetting;
         public JiraController()
@@ -27,7 +27,7 @@ namespace WorkTracker.Controller
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception occurred in JiraController constructor : " + ex.ToString());               
+                Console.WriteLine("Exception occurred in JiraController constructor : " + ex.ToString());
             }
         }
 
