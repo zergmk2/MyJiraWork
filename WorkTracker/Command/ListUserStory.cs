@@ -19,10 +19,20 @@ namespace WorkTracker.Command
             var data = Client.GetAssignedUserStories();
             if (data.Status == RestSharp.ResponseStatus.Completed)
             {
-                foreach (var item in data.issues)
+                Console.WriteLine(new String('-', 115));
+                Console.WriteLine(string.Format("| {0,10} | {1, 15} | {2, -80} |", "id", "User Story Key", "User Story Summary"));
+                Console.WriteLine(new String('-', 115));
+                for(int i = 0; i < data.issues.Length; i++)
                 {
-                    Console.WriteLine(item.ToString());
+                    var issue = data.issues[i];
+                    string summary = issue.fields.summary;
+                    if (summary.Length > 78)
+                    {
+                        summary = summary.Substring(0, 75) + "...";
+                    }
+                    Console.WriteLine(string.Format("| {0,10} | {1, 15} | {2, -80} |", i, issue.key, summary));
                 }
+                Console.WriteLine(new String('-', 115));
             }
         }
     }
