@@ -69,6 +69,7 @@
     <Compile Include="..\MyJiraWork.Core\Utils\UserSetting.cs">
       <Link>Contract\UserSetting.cs</Link>
     </Compile>
+    <Compile Include="Backend\BitbucketRestClient.cs" />
     <Compile Include="Backend\GitClient.cs" />
     <Compile Include="Command\ListUserStory.cs" />
     <Compile Include="Command\SetUpUserSetting.cs" />

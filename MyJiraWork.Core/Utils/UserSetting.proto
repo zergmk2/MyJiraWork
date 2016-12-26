@@ -4,7 +4,7 @@ package tutorial;
 // [END declaration]
 
 // [START csharp_declaration]
-option csharp_namespace = "MyJiraWork.Core.Utils.UserSetting";
+option csharp_namespace = "MyJiraWork.Core.Utils";
 // [END csharp_declaration]
 
 // [START messages]

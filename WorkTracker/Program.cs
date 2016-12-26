@@ -6,7 +6,7 @@ using System.Text;
 using CommandLine;
 using CommandLine.Text;
 using Google.Protobuf;
-using MyJiraWork.Core.Utils.UserSetting;
+using MyJiraWork.Core.Utils;
 using WorkTracker.Command;
 using WorkTracker.Utils;
 

@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using MyJiraWork.Core.Utils.UserSetting;
+using MyJiraWork.Core.Utils;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Authenticators;
 using WorkTracker.Contract;
 using WorkTracker.Model;
 using WorkTracker.Utils;
-using System.Net;
-using MyJiraWork.Core.Utils;
 
 namespace WorkTracker.RestEngine
 {

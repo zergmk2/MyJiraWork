@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Google.Protobuf;
-using MyJiraWork.Core.Utils.UserSetting;
+using MyJiraWork.Core.Utils;
 using WorkTracker.Utils;
 
 namespace WorkTracker.Command

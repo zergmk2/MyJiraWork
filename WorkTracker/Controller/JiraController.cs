@@ -1,5 +1,5 @@
 ﻿using System;
-using MyJiraWork.Core.Utils.UserSetting;
+using MyJiraWork.Core.Utils;
 using WorkTracker.RestEngine;
 using System.IO;
 using WorkTracker.Utils;

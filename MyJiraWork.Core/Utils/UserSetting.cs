@@ -7,7 +7,7 @@ using pb = global::Google.Protobuf;
 using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
-namespace MyJiraWork.Core.Utils.UserSetting {
+namespace MyJiraWork.Core.Utils {
 
   /// <summary>Holder for reflection information generated from UserSetting.proto</summary>
   public static partial class UserSettingReflection {
@@ -26,12 +26,11 @@ namespace MyJiraWork.Core.Utils.UserSetting {
             "EhkKEUppcmFTZXJ2ZXJBZGRyZXNzGAEgASgJEhQKDEppcmFVc2VyTmFtZRgC",
             "IAEoCRIUCgxKaXJhUGFzc3dvcmQYAyABKAkSEwoLUHJveHlTZXJ2ZXIYBCAB",
             "KAkSFQoNUHJveHlVc2VyTmFtZRgFIAEoCRIVCg1Qcm94eVBhc3N3b3JkGAYg",
-            "ASgJQiSqAiFNeUppcmFXb3JrLkNvcmUuVXRpbHMuVXNlclNldHRpbmdiBnBy",
-            "b3RvMw=="));
+            "ASgJQhiqAhVNeUppcmFXb3JrLkNvcmUuVXRpbHNiBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::MyJiraWork.Core.Utils.UserSetting.UserSetting), global::MyJiraWork.Core.Utils.UserSetting.UserSetting.Parser, new[]{ "JiraServerAddress", "JiraUserName", "JiraPassword", "ProxyServer", "ProxyUserName", "ProxyPassword" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::MyJiraWork.Core.Utils.UserSetting), global::MyJiraWork.Core.Utils.UserSetting.Parser, new[]{ "JiraServerAddress", "JiraUserName", "JiraPassword", "ProxyServer", "ProxyUserName", "ProxyPassword" }, null, null, null)
           }));
     }
     #endregion
@@ -48,7 +47,7 @@ namespace MyJiraWork.Core.Utils.UserSetting {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::MyJiraWork.Core.Utils.UserSetting.UserSettingReflection.Descriptor.MessageTypes[0]; }
+      get { return global::MyJiraWork.Core.Utils.UserSettingReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
